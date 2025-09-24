@@ -1,0 +1,149 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap'); /*웹폰트*/
+@import "default.css";
+
+body{
+    font-family: "Noto Sans KR", sans-serif; font-size: 12px; color: #151515;
+}
+a{color: #151515;}
+
+#main_header{
+    position: absolute;
+    /* 방법1 일반적인방법 left: 0; top: 0; width: 100%; height: 70px; padding: 0 15px; box-sizing: border-box;*/
+    /*방법2 덜쓰는 방법*/left: 15px; right: 15px; top: 15px;
+    display: flex; justify-content: space-between; align-items: center; 
+}
+h1{width: 90px; transition: all 0.3s;}
+h1 img{width: 100%; height: auto; object-fit: contain;}
+#main_header>.menubtn{
+    display: block; width: 40px; height: 40px; text-indent: -9999px;
+    background: url("../img/header_menu.png") no-repeat; background-size: contain;
+}
+
+#main_container>.slide_container{position: relative; /*control btn position의 부모역할*/}
+#main_container>.slide_container>.slides{position: relative; /*figure의 부모역할 or 자체움직임*/}
+#main_container>.slide_container>.slides>figure{
+    padding: 50px 0; position: relative; /*figcaption > strong,em 의 부모영역 역할*/
+}
+#main_container>.slide_container>.slides>figure>img{width: 100%; height: auto;}
+#main_container>.slide_container>.slides>figure>figcaption>strong{
+    font-size: 1.4em; position: absolute; right: 50%; transform: translateX(50%); top: 60px;
+    transition: all .3s;
+}
+#main_container>.slide_container>.slides>figure>figcaption>em{
+    font-size: 1em; position: absolute; right: 50%; transform: translateX(50%); bottom: 30px;
+    font-weight: 700; letter-spacing: -1px;
+    transition: all .3s;
+}
+
+#main_container>.banner{display: flex; flex-direction: column; }
+#main_container>.banner>article{width: 100%; }
+#main_container>.banner>article>a{display: block; /*안해도상관없지만 가끔 개발자모드에서 위치가 작게 나올때가 있음*/}
+#main_container>.banner>article>a>figure{position: relative;}
+#main_container>.banner>article>a>figure>img:first-of-type{width: 100%; height: auto;}
+#main_container>.banner>article>a>figure>.playbtn{
+    position: absolute; width: 70px; height: 70px; 
+    left: 50%; top: 50%; transform: translate(-50%,-50%); opacity: 0.6;
+}
+#main_container>.banner>article>a>figure>figcaption{
+    font-size: 1.2em; letter-spacing: -0.5px; font-weight: 700;
+    position: absolute; left: 20px; top: 15px;
+}
+#main_container>.banner>.edge>a>figure>figcaption{color: #ededed;}
+
+#main_container>.galaxy{padding: 30px 0 40px;}
+#main_container>.galaxy>h2{font-size: 1.2em; margin: 0 0 20px 50px;}
+#main_container>.galaxy>ul{display: flex; flex-wrap: wrap; /*flex-flow: row wrap;*/}
+#main_container>.galaxy>ul>li{width: 50%; /*flex-basis:50%;==flex:50%;*/}
+#main_container>.galaxy>ul>li>a{
+    display: block; text-align: center; font-weight: 700; font-size: 1.2em; padding-bottom: 16px;
+    background: rgba(255,255,255,1); transition: all .3s;
+}
+#main_container>.galaxy>ul>li>a>figure>img{width: 100%; height: auto;}
+#main_container>.galaxy>ul>li>a:hover,
+#main_container>.galaxy>ul>li>a:active,
+#main_container>.galaxy>ul>li>a:focus/*tab접근성*/{
+    background: rgba(0,51,154,1); color: #fff;
+}
+
+body{position: relative;}/*요즘 앱솔루티가 애매해서 정확하게 바디한테 totop의 부모라고 명령을 해줘야한다*/
+.toTop{
+    display: block; width: 38px; height: 38px; background: #ccc; font-weight: 700; border-radius: 50%;
+    text-align: center; line-height: 38px; /*or  display:flex; justify-content:center; align-items:center;*/
+    position: absolute; bottom: 12px; right: 15px;
+}
+
+#main_footer{padding-bottom: 62px; position: relative; /*링크박스의 부모*/}
+#main_footer>.footer_top{
+    padding: 0 15px; height: 40px; display: flex; justify-content: space-between;
+}
+#main_footer>.footer_top>.share{display: flex; height: 40px; gap: 20px;}
+#main_footer>.footer_top>.share>h3{font-size: 16px; line-height: 40px; color: #999;}
+#main_footer>.footer_top>.share>ul{display: flex; height: 40px;}
+#main_footer>.footer_top>.share>ul>li>a{display: block; width: 40px; height: 40px; text-indent: -9999px;}
+#main_footer>.footer_top>.share>ul>li:nth-child(1){
+    background: url("../img/samsung_com_f.jpg") no-repeat;
+}
+#main_footer>.footer_top>.share>ul>li:nth-child(2){
+    background: url("../img/samsung_com_t.jpg") no-repeat;
+}
+#main_footer>.footer_top>.share>ul>li:nth-child(3){
+    background: url("../img/samsung_com_g.jpg") no-repeat;
+}
+#main_footer>.footer_top>.share>ul>li:nth-child(4){
+    background: url("../img/samsung_com_in.jpg") no-repeat;
+}
+#main_footer>.footer_top>.linkbox{position: absolute; left: 15px; bottom: 12px;}
+#main_footer>.footer_top>.linkbox>select{
+    border: 1px solid #ccc; height: 40px; line-height: 40px; padding: 0 16px 0 10px; 
+    font-size: 12px; margin-right: 10px;
+}
+
+#main_footer>.footer_bottom{
+    font-size: 10px; display: flex; flex-flow: column wrap; gap: 6px; align-items: center;
+    text-align: center;
+}
+#main_footer>.footer_bottom>.footer_logo{
+    display: block; width: 100px; aspect-ratio: 200/66; text-indent: -9999px; 
+    background: url("../img/footer_logo.png") no-repeat; background-size: contain;
+    /*background: url("../img/footer_logo.png") no-repeat/contain; 위에 줄임표기*/
+}
+#main_footer>.footer_bottom>p{color: #454545;}
+#main_footer>.footer_bottom>ul{
+    display: flex; flex-flow: row wrap; justify-content: center; margin-bottom: 10px;
+}
+#main_footer>.footer_bottom>ul>li{padding: 0 14px;}
+/*#main_footer>.footer_bottom>ul{margin-bottom: 10px;} 두번째 방법
+#main_footer>.footer_bottom>ul>li{display: inline-block; padding: 0 14px;}*/
+
+@media screen and (min-width:741px){ /*테블릿 사이즈*/
+    h1{width: 104px;}
+    #main_container>.slide_container>.slides>figure>figcaption>strong{font-size: 2.5em;}
+    #main_container>.slide_container>.slides>figure>figcaption>em{font-size: 1.4em;}
+    #main_container>.banner{flex-direction: row;}
+    #main_container>.banner>article{width: 50%;}
+    #main_container>.banner>article>a>figure>.playbtn{width: 90px; height: 90px;}
+    #main_container>.banner>article>a>figure>figcaption{font-size: 16px;}
+    #main_container>.galaxy>h2{font-size: 20px;}
+    #main_container>.galaxy>ul>li{width: 33.3333%;}
+    #main_footer>.footer_top>.linkbox{position: static;}
+    #main_footer>.footer_bottom{height: 50px; align-items: flex-start; margin-top: 10px;}
+    #main_footer>.footer_bottom>.footer_logo{width: 130px; margin-left: 15px;}
+    #main_footer>.footer_bottom>p{width: calc(100% - 160px); text-align: left;}
+    #main_footer>.footer_bottom>ul{width: calc(100% - 160px); justify-content: flex-start;}
+    #main_footer>.footer_bottom>ul>li{padding: 0 8px;}
+    #main_footer>.footer_bottom>ul>li:first-child{padding: 0;}
+}    
+
+@media screen and (min-width:1025px){/*데스크탑 사이즈*/
+    h1{width: 134px;}
+    #main_container>.slide_container>.slides>figure>figcaption>strong{
+        font-size: 4em; top: 90px; right: 50px; transform: none;
+    }
+    #main_container>.slide_container>.slides>figure>figcaption>em{
+        font-size: 2.8em; bottom: 36%; right: 50px; transform: none;
+    }
+    #main_container>.galaxy>h2{ font-size: 26px;}
+    #main_container>.galaxy>ul>li{width: 25%; }
+    #main_footer>.footer_bottom{font-size: 12px;}
+}
